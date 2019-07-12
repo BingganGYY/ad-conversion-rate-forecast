@@ -1,0 +1,34 @@
+#将-1替换成''，方便后面用isnull()
+col_names = data.columns.tolist()
+for i in col_names:
+    data.loc[data[i] == -1, i] =''
+print(data)
+
+#把数据集拆开
+data = pd.read_csv('C:/Users/Amber/Desktop/ad_data/ad_train.txt',sep=' ')#最开始最真实的train
+print(data)
+print(type(data))
+print(data.columns)
+data.rename(columns={'predict_category_property':'context_predict_category_property'},inplace=True)#修改列名
+print(data.columns)
+col_names = data.columns.tolist()
+print(col_names)
+item_columns = []
+user_columns = []
+context_columns = []
+shop_columns = []
+for c in col_names:
+    if c.startswith('item'):#startswith(),endswith() 此函数判断一个文本是否以某个或几个字符开始（结束）
+        item_columns.append(c)
+    elif c.startswith('user'):
+        user_columns.append(c)
+    elif c.startswith('context'):
+        context_columns.append(c)
+    elif c.startswith('shop'):
+        shop_columns.append(c)
+item_data = data[item_columns]
+user_data = data[user_columns]
+context_data = data[context_columns]
+shop_data = data[shop_columns]
+print([item_data,user_data,context_data,shop_data])
+#[478138 rows x 9 columns],[478138 rows x 5 columns],[478138 rows x 4 columns],[478138 rows x 7 columns]]
