@@ -1,2 +1,2 @@
-# ad_2019
-Research on Application of Conversion Rate Prediction of Search Advertising Based on Integrated Learning Algorithm
+# ad
+2018阿里妈妈国际广告算法大赛-基于集成学习算法的搜索广告转化率预测应用研究
